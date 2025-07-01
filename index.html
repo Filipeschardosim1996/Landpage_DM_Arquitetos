@@ -7,7 +7,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
   <style>
     :root {
-      --marsala: #7b1f22;
+      --marsala: #96414a;      /* Marsala mais claro, sofisticado */
       --branco: #fff;
       --cinza-logo: #3c4347;
       --rosa-arquiteto: #fbeaec;
@@ -110,8 +110,8 @@
     .diferenciais li {
       display: inline-block;
       font-size: 1.11em;
-      color: var(--branco);
-      background: #9e2835;
+      color: var(--marsala); /* Igual à mensagem de arquiteto */
+      background: var(--rosa-arquiteto); /* Mesma cor clara */
       margin-bottom: 10px;
       margin-right: 10px;
       margin-left: 10px;
@@ -121,14 +121,14 @@
       font-weight: 500;
       box-shadow: 0 1px 10px #0002;
       letter-spacing: 0.1px;
-      text-shadow: 0 1px 8px #0003;
+      text-shadow: none;
       margin-top: 0;
       min-width: 240px;
       text-align: left;
     }
     .diferenciais li::before {
       content: '✓';
-      color: var(--rosa-arquiteto);
+      color: var(--marsala);
       font-weight: bold;
       font-size: 1.25em;
       position: absolute;
