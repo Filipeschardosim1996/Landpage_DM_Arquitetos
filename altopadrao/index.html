@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DM Movelaria — Alto Padrão</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --marsala: #96414a;
+      --branco: #fff;
+      --cinza-logo: #3c4347;
+      --rosa-arquiteto: #fbeaec;
+      --verde-whatsapp: #25d366;
+      --verde-whatsapp-dark: #1eb145;
+    }
+    html, body {
+      margin: 0;
+      padding: 0;
+      min-height: 100vh;
+      background: var(--marsala);
+      font-family: 'Montserrat', Arial, sans-serif;
+      color: var(--branco);
+    }
+    .header {
+      width: 100%;
+      background: var(--branco);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 38px 0 28px 0;
+      box-sizing: border-box;
+      box-shadow: 0 3px 28px #0000000c;
+    }
+    .logo {
+      max-width: 280px;
+      width: 38vw;
+      min-width: 140px;
+      display: block;
+    }
+    .main-content {
+      width: 100%;
+      max-width: 920px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 28px 12px 36px 12px;
+      box-sizing: border-box;
+    }
+    .headline {
+      color: var(--branco);
+      font-weight: 700;
+      font-size: 2.5rem;
+      margin-bottom: 22px;
+      letter-spacing: -1px;
+      line-height: 1.10;
+      text-align: center;
+      text-shadow: 0 2px 14px #0004;
+      max-width: 100%;
+      width: 100%;
+      padding-left: 0;
+      padding-right: 0;
+    }
+    .caixa-clara {
+      background: var(--rosa-arquiteto);
+      color: var(--marsala);
+      border-radius: 14px;
+      font-size: 1.13em;
+      padding: 16px 18px;
+      margin-bottom: 26px;
+      font-weight: 600;
+      box-shadow: 0 1px 12px #7b1f220a;
+      max-width: 600px;
+      width: 100%;
+      text-align: center;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .subheadline {
+      font-size: 1.25rem;
+      margin-bottom: 24px;
+      color: var(--branco);
+      font-weight: 400;
+      line-height: 1.32;
+      text-align: center;
+      text-shadow: 0 2px 10px #0002;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .imagem-moveis {
+      width: 100%;
+      max-width: 680px;
+      border-radius: 18px;
+      margin-bottom: 22px;
+      box-shadow: 0 3px 24px #0006;
+      display: block;
+    }
+    .diferenciais {
+      width: 100%;
+      list-style: none;
+      padding: 0;
+      margin: 0 0 28px 0;
+      text-align: center;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .diferenciais li {
+      display: inline-block;
+      font-size: 1.11em;
+      color: var(--marsala);
+      background: var(--rosa-arquiteto);
+      margin-bottom: 10px;
+      margin-right: 10px;
+      margin-left: 10px;
+      padding: 15px 20px 15px 42px;
+      border-radius: 12px;
+      position: relative;
+      font-weight: 500;
+      box-shadow: 0 1px 10px #0002;
+      letter-spacing: 0.1px;
+      text-shadow: none;
+      margin-top: 0;
+      min-width: 240px;
+      text-align: left;
+    }
+    .diferenciais li::before {
+      content: '✓';
+      color: var(--marsala);
+      font-weight: bold;
+      font-size: 1.25em;
+      position: absolute;
+      left: 17px;
+      top: 14px;
+    }
+    .cta-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 18px;
+      background: var(--verde-whatsapp);
+      color: var(--branco);
+      text-decoration: none;
+      padding: 20px 0;
+      border-radius: 11px;
+      font-size: 1.32em;
+      font-weight: 700;
+      letter-spacing: 1px;
+      box-shadow: 0 3px 22px #0002;
+      transition: background 0.24s, color 0.24s;
+      width: 100%;
+      max-width: 400px;
+      text-align: center;
+      border: none;
+      margin: 28px auto 0 auto;
+      cursor: pointer;
+    }
+    .cta-btn:hover, .cta-btn:focus {
+      background: var(--verde-whatsapp-dark);
+      color: var(--branco);
+    }
+    .whatsapp-icon {
+      width: 38px;
+      height: 38px;
+      display: inline-block;
+      vertical-align: middle;
+    }
+    @media (max-width: 1100px) {
+      .main-content { max-width: 99vw; }
+      .imagem-moveis { max-width: 99vw; }
+    }
+    @media (max-width: 700px) {
+      .header { padding: 19px 0 13px 0; }
+      .logo { max-width: 110px; min-width: 58px; }
+      .main-content { padding: 13px 2vw 16vw 2vw;}
+      .headline { font-size: 1.14rem; }
+      .caixa-clara { font-size: 1em; padding: 10px 4vw;}
+      .subheadline { font-size: 1.01rem; }
+      .diferenciais { max-width: 99vw; }
+      .diferenciais li { min-width: unset; width: 90vw; margin-left: 0; margin-right: 0; }
+      .cta-btn { font-size: 1em; }
+      .whatsapp-icon { width: 28px; height: 28px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <img class="logo" src="logofundo.png" alt="DM Movelaria Logomarca">
+  </div>
+  <div class="main-content">
+    <div class="headline">
+      Movelaria de alto padrão para clientes exigentes
+    </div>
+    <div class="caixa-clara">
+      Você tem um projeto pronto e busca execução impecável?<br>
+      Na DM Movelaria, cada detalhe do seu mobiliário é tratado com precisão e excelência.<br>
+      Transformamos projetos sofisticados em ambientes reais, sem surpresas e com total transparência.
+    </div>
+    <div class="subheadline">
+      Execução fiel ao seu projeto, atendimento exclusivo e total clareza do início ao fim.
+    </div>
+
+    <img class="imagem-moveis" src="logoaltopadrao.jpg" alt="Ambiente planejado de alto padrão">
+
+    <ul class="diferenciais">
+      <li>Reprojetamos seu 3D com as medidas reais do ambiente</li>
+      <li>Soluções de engenharia para evitar erros e garantir funcionalidade</li>
+      <li>Materiais de alto padrão, entrega pontual e acabamento superior</li>
+    </ul>
+
+    <a class="cta-btn" href="https://wa.me/5551981016361" target="_blank">
+      <img class="whatsapp-icon" src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
+      Falar com o especialista
+    </a>
+  </div>
+</body>
+</html>
