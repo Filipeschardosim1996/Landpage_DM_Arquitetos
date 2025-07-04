@@ -7,7 +7,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
   <style>
     :root {
-      --marsala: #96414a;      /* Marsala mais claro, sofisticado */
+      --marsala: #96414a;
       --branco: #fff;
       --cinza-logo: #3c4347;
       --rosa-arquiteto: #fbeaec;
@@ -15,12 +15,19 @@
       --verde-whatsapp-dark: #1eb145;
     }
     html, body {
+      height: 100%;
       margin: 0;
       padding: 0;
-      min-height: 100vh;
-      background: var(--marsala);
       font-family: 'Montserrat', Arial, sans-serif;
       color: var(--branco);
+      min-height: 100vh;
+    }
+    body {
+      /* Fundo com imagem, cobre tudo, efeito escurecido */
+      background: linear-gradient(rgba(40,18,23, 0.68), rgba(80,38,44, 0.72)), url('fotoaltopadrao.jpeg') center center/cover no-repeat fixed;
+      min-height: 100vh;
+      width: 100vw;
+      box-sizing: border-box;
     }
     .header {
       width: 100%;
@@ -47,6 +54,10 @@
       align-items: center;
       padding: 28px 12px 36px 12px;
       box-sizing: border-box;
+      background: rgba(50, 20, 30, 0.34); /* um leve fundo para destacar os elementos */
+      border-radius: 18px;
+      margin-top: 34px;
+      margin-bottom: 34px;
     }
     .headline {
       color: var(--branco);
@@ -89,13 +100,27 @@
       margin-left: auto;
       margin-right: auto;
     }
-    .imagem-moveis {
+    /* VIDEO ESTILO MODERNO */
+    .video-explica {
       width: 100%;
-      max-width: 680px;
-      border-radius: 18px;
-      margin-bottom: 22px;
-      box-shadow: 0 3px 24px #0006;
+      max-width: 660px;
+      margin: 0 auto 22px auto;
+      aspect-ratio: 16 / 9;
+      background: #ddd;
+      border-radius: 14px;
+      overflow: hidden;
+      box-shadow: 0 4px 22px #0008;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .video-explica video, 
+    .video-explica iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
       display: block;
+      background: #222;
     }
     .diferenciais {
       width: 100%;
@@ -110,8 +135,8 @@
     .diferenciais li {
       display: inline-block;
       font-size: 1.11em;
-      color: var(--marsala); /* Igual à mensagem de arquiteto */
-      background: var(--rosa-arquiteto); /* Mesma cor clara */
+      color: var(--marsala);
+      background: var(--rosa-arquiteto);
       margin-bottom: 10px;
       margin-right: 10px;
       margin-left: 10px;
@@ -169,7 +194,6 @@
     }
     @media (max-width: 1100px) {
       .main-content { max-width: 99vw; }
-      .imagem-moveis { max-width: 99vw; }
     }
     @media (max-width: 700px) {
       .header { padding: 19px 0 13px 0; }
@@ -182,6 +206,7 @@
       .diferenciais li { min-width: unset; width: 90vw; margin-left: 0; margin-right: 0; }
       .cta-btn { font-size: 1em; }
       .whatsapp-icon { width: 28px; height: 28px; }
+      .video-explica { max-width: 99vw; }
     }
   </style>
 </head>
@@ -200,16 +225,23 @@
       A DM Movelaria cuida de tudo para você, do planejamento à montagem final a mais de 13 anos.
     </div>
 
-    <img class="imagem-moveis" src="fotoaltopadrao.jpeg" alt="Ambiente planejado de alto padrão">
+    <!-- VÍDEO EXPLICATIVO (altere o src quando o vídeo estiver pronto) -->
+    <div class="video-explica">
+      <!-- Quando seu vídeo estiver pronto, troque o src abaixo pelo link correto (YouTube, Vimeo ou arquivo MP4) -->
+      <video controls poster="fotoaltopadrao.jpeg">
+        <source src="seuvideo.mp4" type="video/mp4">
+        Seu navegador não suporta vídeo.
+      </video>
+    </div>
 
     <ul class="diferenciais">
       <li>Planejamento personalizado para seu espaço</li>
-      <li>Execução sem surpresas metodo validado de execução</li>
+      <li>Execução sem surpresas método validado de execução</li>
       <li>Pagamento facilitado ou desconto à vista</li>
       <li>Gestores acompanhando a produção até a montagem</li>
     </ul>
 
-    <a class="cta-btn" href="https://wa.me/5551997333698" target="_blank">
+    <a class="cta-btn" href="https://wa.me/5551981016361" target="_blank">
       <img class="whatsapp-icon" src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
       Falar com o atendente
     </a>
