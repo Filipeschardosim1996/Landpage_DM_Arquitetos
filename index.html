@@ -8,26 +8,22 @@
   <style>
     :root {
       --marsala: #96414a;
+      --marsala-overlay: rgba(150,65,74,0.60); /* Mais suave! */
       --branco: #fff;
-      --cinza-logo: #3c4347;
-      --rosa-arquiteto: #fbeaec;
+      --preto: #181818;
       --verde-whatsapp: #25d366;
       --verde-whatsapp-dark: #1eb145;
     }
     html, body {
-      height: 100%;
       margin: 0;
       padding: 0;
-      font-family: 'Montserrat', Arial, sans-serif;
-      color: var(--branco);
       min-height: 100vh;
+      font-family: 'Montserrat', Arial, sans-serif;
+      color: var(--preto);
     }
     body {
-      /* Fundo com imagem, cobre tudo, efeito escurecido */
-      background: linear-gradient(rgba(40,18,23, 0.68), rgba(80,38,44, 0.72)), url('fotoaltopadrao.jpeg') center center/cover no-repeat fixed;
+      position: relative;
       min-height: 100vh;
-      width: 100vw;
-      box-sizing: border-box;
     }
     .header {
       width: 100%;
@@ -38,6 +34,8 @@
       padding: 38px 0 28px 0;
       box-sizing: border-box;
       box-shadow: 0 3px 28px #0000000c;
+      z-index: 2;
+      position: relative;
     }
     .logo {
       max-width: 280px;
@@ -45,7 +43,33 @@
       min-width: 140px;
       display: block;
     }
+
+    /* Imagem de fundo + overlay marsala */
+    .main-bg {
+      position: fixed;
+      top: 0; left: 0; width: 100vw; height: 100vh;
+      z-index: 0;
+      overflow: hidden;
+    }
+    .main-bg img {
+      width: 100vw;
+      height: 100vh;
+      object-fit: cover;
+      object-position: center;
+      display: block;
+      filter: brightness(0.88);
+    }
+    .main-bg::after {
+      content: "";
+      position: absolute;
+      left: 0; top: 0; width: 100%; height: 100%;
+      background: var(--marsala-overlay);
+      pointer-events: none;
+    }
+
     .main-content {
+      position: relative;
+      z-index: 3;
       width: 100%;
       max-width: 920px;
       margin: 0 auto;
@@ -54,15 +78,12 @@
       align-items: center;
       padding: 28px 12px 36px 12px;
       box-sizing: border-box;
-      background: rgba(50, 20, 30, 0.34); /* um leve fundo para destacar os elementos */
-      border-radius: 18px;
-      margin-top: 34px;
-      margin-bottom: 34px;
     }
     .headline {
       color: var(--branco);
+      font-family: 'Montserrat', Arial, sans-serif;
       font-weight: 700;
-      font-size: 2.5rem;
+      font-size: 2.4rem;
       margin-bottom: 22px;
       letter-spacing: -1px;
       line-height: 1.10;
@@ -73,9 +94,21 @@
       padding-left: 0;
       padding-right: 0;
     }
+    .headline .destacado {
+      background: var(--marsala);
+      color: #fff;
+      padding: 2px 10px;
+      border-radius: 10px;
+      font-size: 2.7rem;
+      font-weight: 900;
+      letter-spacing: 0.5px;
+      display: inline-block;
+      margin-left: 8px;
+      box-shadow: 0 2px 14px #0002;
+    }
     .arquiteto-msg {
-      background: var(--rosa-arquiteto);
-      color: var(--marsala);
+      background: var(--branco);
+      color: var(--preto);
       border-radius: 14px;
       font-size: 1.13em;
       padding: 16px 18px;
@@ -88,66 +121,48 @@
       margin-left: auto;
       margin-right: auto;
     }
-    .subheadline {
-      font-size: 1.25rem;
-      margin-bottom: 24px;
-      color: var(--branco);
-      font-weight: 400;
-      line-height: 1.32;
-      text-align: center;
-      text-shadow: 0 2px 10px #0002;
-      max-width: 600px;
-      margin-left: auto;
-      margin-right: auto;
-    }
-    /* VIDEO ESTILO MODERNO */
-    .video-explica {
+    .video-area {
+      margin: 26px 0 18px 0;
       width: 100%;
-      max-width: 660px;
-      margin: 0 auto 22px auto;
-      aspect-ratio: 16 / 9;
-      background: #ddd;
-      border-radius: 14px;
-      overflow: hidden;
-      box-shadow: 0 4px 22px #0008;
+      max-width: 560px;
+      min-height: 270px;
       display: flex;
       align-items: center;
       justify-content: center;
+      background: #fff;
+      border-radius: 15px;
+      box-shadow: 0 1px 10px #0002;
+      overflow: hidden;
     }
-    .video-explica video, 
-    .video-explica iframe {
+    .video-area span {
+      color: #777;
+      font-size: 1.15em;
+      padding: 56px 10px;
+      text-align: center;
       width: 100%;
-      height: 100%;
-      border: none;
-      display: block;
-      background: #222;
     }
     .diferenciais {
       width: 100%;
       list-style: none;
       padding: 0;
-      margin: 0 0 28px 0;
+      margin: 26px 0 28px 0;
       text-align: center;
       max-width: 600px;
       margin-left: auto;
       margin-right: auto;
     }
     .diferenciais li {
-      display: inline-block;
+      display: block;
       font-size: 1.11em;
-      color: var(--marsala);
-      background: var(--rosa-arquiteto);
-      margin-bottom: 10px;
-      margin-right: 10px;
-      margin-left: 10px;
+      color: var(--preto);
+      background: var(--branco);
+      margin-bottom: 16px;
       padding: 15px 20px 15px 42px;
       border-radius: 12px;
       position: relative;
       font-weight: 500;
       box-shadow: 0 1px 10px #0002;
       letter-spacing: 0.1px;
-      text-shadow: none;
-      margin-top: 0;
       min-width: 240px;
       text-align: left;
     }
@@ -160,91 +175,81 @@
       left: 17px;
       top: 14px;
     }
-    .cta-btn {
+    /* Botão flutuante do WhatsApp */
+    .whatsapp-float {
+      position: fixed;
+      right: 28px;
+      bottom: 32px;
+      z-index: 1200;
+      background: var(--verde-whatsapp);
+      border-radius: 50%;
+      width: 62px;
+      height: 62px;
+      box-shadow: 0 2px 15px #0004;
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: 18px;
-      background: var(--verde-whatsapp);
-      color: var(--branco);
-      text-decoration: none;
-      padding: 20px 0;
-      border-radius: 11px;
-      font-size: 1.32em;
-      font-weight: 700;
-      letter-spacing: 1px;
-      box-shadow: 0 3px 22px #0002;
-      transition: background 0.24s, color 0.24s;
-      width: 100%;
-      max-width: 400px;
-      text-align: center;
-      border: none;
-      margin: 28px auto 0 auto;
+      transition: background 0.18s;
       cursor: pointer;
+      border: none;
     }
-    .cta-btn:hover, .cta-btn:focus {
-      background: var(--verde-whatsapp-dark);
-      color: var(--branco);
-    }
-    .whatsapp-icon {
+    .whatsapp-float img {
       width: 38px;
       height: 38px;
-      display: inline-block;
-      vertical-align: middle;
+      display: block;
     }
-    @media (max-width: 1100px) {
-      .main-content { max-width: 99vw; }
+    .whatsapp-float:hover {
+      background: var(--verde-whatsapp-dark);
+    }
+    @media (max-width: 900px) {
+      .headline { font-size: 1.45rem; }
+      .headline .destacado { font-size: 1.6rem;}
+      .arquiteto-msg { font-size: 1em; }
+      .diferenciais { max-width: 97vw; }
+      .diferenciais li { min-width: unset; width: 94vw; }
+      .video-area { max-width: 98vw;}
     }
     @media (max-width: 700px) {
       .header { padding: 19px 0 13px 0; }
       .logo { max-width: 110px; min-width: 58px; }
-      .main-content { padding: 13px 2vw 16vw 2vw;}
-      .headline { font-size: 1.14rem; }
-      .arquiteto-msg { font-size: 1em; padding: 10px 4vw;}
-      .subheadline { font-size: 1.01rem; }
-      .diferenciais { max-width: 99vw; }
-      .diferenciais li { min-width: unset; width: 90vw; margin-left: 0; margin-right: 0; }
-      .cta-btn { font-size: 1em; }
-      .whatsapp-icon { width: 28px; height: 28px; }
-      .video-explica { max-width: 99vw; }
+      .headline { font-size: 1.06rem; }
+      .headline .destacado { font-size: 1.2rem;}
+      .main-content { padding: 10px 2vw 16vw 2vw;}
     }
   </style>
 </head>
 <body>
+  <!-- Imagem de fundo com sobreposição marsala -->
+  <div class="main-bg">
+    <img src="fotoaltopadrao.jpeg" alt="Ambiente planejado alto padrão">
+  </div>
+
   <div class="header">
     <img class="logo" src="logofundo.png" alt="DM Movelaria Logomarca">
   </div>
+
   <div class="main-content">
     <div class="headline">
-      Movelaria de alto padrão
+      Movelaria de <span class="destacado">alto padrão</span>
     </div>
     <div class="arquiteto-msg">
-      Somos a marcenaria parceira que transforma o seu projeto em realidade sem surpresas. Trabalhamos lado a lado para garantir precisão, qualidade e respeito total à sua criação.
+      Somos a marcenaria parceira que transforma o seu projeto em realidade sem surpresas.<br>
+      Trabalhamos lado a lado para garantir precisão, qualidade e respeito total à sua criação.
     </div>
-    <div class="subheadline">
-      A DM Movelaria cuida de tudo para você, do planejamento à montagem final a mais de 13 anos.
+    <div class="video-area">
+      <span>Vídeo explicativo em breve...</span>
     </div>
-
-    <!-- VÍDEO EXPLICATIVO (altere o src quando o vídeo estiver pronto) -->
-    <div class="video-explica">
-      <!-- Quando seu vídeo estiver pronto, troque o src abaixo pelo link correto (YouTube, Vimeo ou arquivo MP4) -->
-      <video controls poster="fotoaltopadrao.jpeg">
-        <source src="seuvideo.mp4" type="video/mp4">
-        Seu navegador não suporta vídeo.
-      </video>
-    </div>
-
     <ul class="diferenciais">
       <li>Planejamento personalizado para seu espaço</li>
-      <li>Execução sem surpresas método validado de execução</li>
+      <li>Execução sem surpresas, método validado de execução</li>
       <li>Pagamento facilitado ou desconto à vista</li>
       <li>Gestores acompanhando a produção até a montagem</li>
     </ul>
-
-    <a class="cta-btn" href="https://wa.me/5551981016361" target="_blank">
-      <img class="whatsapp-icon" src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
-      Falar com o atendente
-    </a>
   </div>
+
+  <!-- Botão flutuante do WhatsApp -->
+  <a href="https://wa.me/5551981016361" class="whatsapp-float" target="_blank" title="Fale conosco no WhatsApp">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
+  </a>
 </body>
 </html>
