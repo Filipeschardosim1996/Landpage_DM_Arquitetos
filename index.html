@@ -6,7 +6,7 @@
   <title>DM Movelaria de Alto Padrão</title>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
   <style>
-        :root {
+    :root {
       --marsala: #96414a;
       --branco: #fff;
       --cinza-logo: #3c4347;
@@ -79,33 +79,38 @@
       padding: 28px 12px 36px 12px;
       box-sizing: border-box;
     }
+    /* NOVO BLOCO: contorno marsala no título */
     .headline {
-      color: var(--branco);
-      font-family: 'Montserrat', Arial, sans-serif;
-      font-weight: 700;
-      font-size: 2.4rem;
-      margin-bottom: 22px;
-      letter-spacing: -1px;
-      line-height: 1.10;
       text-align: center;
-      text-shadow: 0 2px 14px #0004;
-      max-width: 100%;
-      width: 100%;
-      padding-left: 0;
-      padding-right: 0;
+      margin-bottom: 22px;
     }
-    .headline .destacado {
+    .headline .destaque-bg {
       background: var(--marsala);
       color: #fff;
-      padding: 2px 10px;
-      border-radius: 10px;
+      border-radius: 12px;
+      padding: 4px 24px;
+      display: inline-block;
+      box-shadow: 0 2px 14px #0002;
+      font-family: 'Montserrat', Arial, sans-serif;
+      font-weight: 700;
+      font-size: 2.5rem;
+      line-height: 1.15;
+      letter-spacing: -1px;
+    }
+    .headline .destacado {
       font-size: 2.7rem;
       font-weight: 900;
       letter-spacing: 0.5px;
-      display: inline-block;
       margin-left: 8px;
-      box-shadow: 0 2px 14px #0002;
+      background: none;
+      color: #fff;
+      padding: 0;
+      box-shadow: none;
+      border-radius: 0;
+      display: inline;
     }
+    /* FIM DO BLOCO NOVO */
+
     .arquiteto-msg {
       background: var(--branco);
       color: var(--preto);
@@ -202,7 +207,7 @@
       background: var(--verde-whatsapp-dark);
     }
     @media (max-width: 900px) {
-      .headline { font-size: 1.45rem; }
+      .headline .destaque-bg { font-size: 1.45rem; padding: 4px 10px;}
       .headline .destacado { font-size: 1.6rem;}
       .arquiteto-msg { font-size: 1em; }
       .diferenciais { max-width: 97vw; }
@@ -212,7 +217,7 @@
     @media (max-width: 700px) {
       .header { padding: 19px 0 13px 0; }
       .logo { max-width: 110px; min-width: 58px; }
-      .headline { font-size: 1.06rem; }
+      .headline .destaque-bg { font-size: 1.06rem; }
       .headline .destacado { font-size: 1.2rem;}
       .main-content { padding: 10px 2vw 16vw 2vw;}
     }
@@ -230,12 +235,9 @@
 
   <div class="main-content">
     <div class="headline">
-      Movelaria de <span class="destacado">alto padrão</span>
-    </div>
-    <div class="arquiteto-msg">
-      Somos a marcenaria parceira que transforma o seu projeto em realidade sem surpresas.<br>
-      Trabalhamos lado a lado para garantir precisão, qualidade e respeito total à sua criação.
-    </div>
+      <span class="destaque-bg">
+        Movelaria de <span class="destacado">alto padrão</span>
+      </span>
     <div class="video-area">
       <span>Vídeo explicativo em breve...</span>
     </div>
